@@ -1,0 +1,52 @@
+{
+  "name": "my-app",
+  "private": true,
+  "workspaces": [
+    "expo",
+    "next",
+    "packages/*"
+  ],
+  "scripts": {
+    "native": "yarn build && cd expo && yarn start",
+    "web": "yarn build && cd next && yarn next",
+    "watch": "yarn workspaces foreach -pi run watch",
+    "postinstall": "yarn build",
+    "build": "yarn workspaces foreach --exclude next-app -pi run build",
+    "upgrade:tamagui": "manypkg upgrade tamagui && manypkg upgrade @tamagui && manypkg upgrade tamagui-loader",
+    "sync:tamagui": "${TAMAGUI_PATH:-$HOME/tamagui}/starters-sync.sh",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "resolutions": {
+    "cacache": "16.0.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-refresh": "0.11.0",
+    "react-native-web": "0.17.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@manypkg/cli": "^0.19.1",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-docs": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/react": "^17.0.39",
+    "@types/react-native": "^0.67.2",
+    "babel-loader": "^8.2.5",
+    "esbuild-loader": "^2.19.0",
+    "eslint": "^8.11.0",
+    "prettier": "^2.6.2",
+    "tamagui-loader": "^1.0.1-beta.67",
+    "thread-loader": "^3.0.4",
+    "turbo": "^1.1.6",
+    "typescript": "^4.6.3"
+  },
+  "packageManager": "yarn@3.2.0"
+}
